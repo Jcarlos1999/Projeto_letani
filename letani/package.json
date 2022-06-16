@@ -2,11 +2,16 @@
   "name": "letani",
   "version": "0.1.0",
   "private": true,
+  "jest": {
+    "bail": 1,
+    "verbose": true
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest"
   },
   "dependencies": {
     "next": "12.1.5",
@@ -14,11 +19,17 @@
     "react-dom": "18.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
+    "@types/jest": "^28.1.1",
     "autoprefixer": "^10.4.4",
+    "babel-jest": "^28.1.1",
     "eslint": "8.13.0",
     "eslint-config-next": "12.1.5",
     "jest": "^27.5.1",
     "postcss": "^8.4.12",
-    "tailwindcss": "^3.0.24"
+    "tailwindcss": "^3.0.24",
+    "ts-jest": "^28.0.5",
+    "typescript": "^4.7.3"
   }
 }
