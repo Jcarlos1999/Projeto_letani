@@ -1,9 +1,6 @@
-import React from "react";
+class Observable{
 
-class Observable extends React.Component{
-
-    constructor(props) {
-    super()
+    constructor() {
     this.observers = [];
     }
 
@@ -18,7 +15,7 @@ class Observable extends React.Component{
     }
 
     notify(data){
-        this.observers.forEach(observer => observer(data));
+        return data;
     }
 
 }
