@@ -37,6 +37,23 @@ test('is empty', () => {
     expect('Serviço foi removido');
  })
 
+ test('Removing from a empty list', () =>{
+    const serviceList = new ServiceList();
+    const service1 = new Service('Mudança', client1, 'Mudança de casa, no dia 31/02,')
+
+    expect(serviceList.removeService(service1)).toBe('Impossivel remover um item, pois a lista está vazia');
+ })
+
+ test('Addinng one and remove', () =>{
+    const serviceList = new ServiceList();
+    const service1 = new Service('Mudança', client1, 'Mudança de casa, no dia 31/02,')
+
+    serviceList.addService(service1);
+    serviceList.removeService(service1);
+    expect(serviceList.litsOfService.length).toBe(0);
+    expect(serviceList.removeService(service1)).toBe('Impossivel remover um item, pois a lista está vazia')
+ })
+
  test('Remove from service list and adding an already existing client', () => {
     const serviceList = new ServiceList();
     const service1 = new Service('Mudança', client1, 'Mudança de casa, no dia 31/02,')
@@ -51,24 +68,9 @@ test('is empty', () => {
     serviceList.addService(service3);
     
     expect(serviceList.litsOfService.length).toBe(2);
-    expect('Esse serviço já existe');
+    expect(serviceList.addService(service3)).toBe('Esse serviço já existe');
  })
 
- test('Update service', () => {
-    const serviceList = new ServiceList();
-    const service = new Service('Mudança', client1, 'Mudança de casa, no dia 31/02')
-
-    serviceList.addService(service);
-    serviceList.subscribe(client1)
-    serviceList.subscribe(client2)
-
-    service.setDetails('Mudança de casa, no dia 28/02')
-
-    serviceList.updateService(service)
-
-    expect('Serviço foi atualizado')
-
- })
 
  test('Adding an already accepted service', () =>{
 

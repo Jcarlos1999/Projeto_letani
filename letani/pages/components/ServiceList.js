@@ -6,6 +6,14 @@ export default class ServiceList extends Observable{
         this.litsOfService = [];
     }
 
+    isEmpty(){
+        if(this.litsOfService.length == 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     addService(s){
         if(s.isAccept == true){
             return 'Serviço já foi aceito por outro usuario';
@@ -20,12 +28,11 @@ export default class ServiceList extends Observable{
     }
 
     removeService(s){
+        if(this.isEmpty() == true){
+            return 'Impossivel remover um item, pois a lista está vazia'
+        }
         this.litsOfService = this.litsOfService.filter(service => service !== s);
         this.notify('Serviço foi removido')
     }
 
-    updateService(s){
-        this.litsOfService = this.litsOfService.filter(newService => newService = s);
-        this.notify('Serviço foi atualizado')
-    }
 }

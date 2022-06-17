@@ -7,8 +7,7 @@ const client3 = new Client('Urameshi', '7777', 'Urameshi@email.com','Yusuke Uram
 
 test('Is empty', () => { 
     const observer = new Observable();
-    const value = observer.observers.length;
-    expect(value).toBe(0);
+    expect(observer.isEmpty).toBeTruthy();
 
  })
 
@@ -23,9 +22,7 @@ test('adding an existing client', () => {
     const observer = new Observable();
     observer.subscribe(client1);
 
-    observer.subscribe(client1);
-
-    expect('Esse cliente já está inscrito');
+    expect(observer.subscribe(client1)).toBe('Esse cliente já está inscrito');
 })
 
 
@@ -37,10 +34,23 @@ test('Remove from array observers', () => {
     expect(value).toBe(0);
 })
 
-test('Testin notify', () => {
+test('Removing from a empty list', () =>{
+    const observer = new Observable();
+
+    expect(observer.unsubscribe(client1)).toBe('Impossivel remover um item, pois a lista está vazia');
+})
+
+test('Adding one removing two', () =>{
     const observer = new Observable();
     observer.subscribe(client2);
+    observer.unsubscribe(client2);
 
-    observer.notify('Foi adicionado um novo servico');
-    expect('Foi adicionado um novo servico');
+    expect(observer.observers.length).toBe(0);
+    expect(observer.unsubscribe(client2)).toBe('Impossivel remover um item, pois a lista está vazia');
+})
+
+test('Testin notify', () => {
+    const observer = new Observable();
+
+    expect(observer.notify('Foi adicionado um novo servico')).toBe('Foi adicionado um novo servico');
 })
