@@ -4,6 +4,7 @@ export default class Service{
         this.titulo = titulo;
         this.user = user;
         this.details = details;
+        this.isAccpt = false;
     }
 
     setTitulo(newTitulo){
@@ -16,6 +17,10 @@ export default class Service{
     
     setDetails(newDetail){
         this.details = newDetail;
+    }
+
+    changeIsAccept(){
+        this.isAccpt = !this.isAccpt;
     }
 
 }

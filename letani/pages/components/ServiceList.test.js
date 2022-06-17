@@ -12,17 +12,18 @@ test('is empty', () => {
     expect(serviceList.litsOfService.length).toBe(0);
  })
 
- test('Add Service', () =>{
+ test('Adding Service', () =>{
     const serviceList = new ServiceList();
     const service = new Service('Mudança', client1, 'Mudança de casa, no dia 31/02')
     serviceList.addService(service);
     
     expect(serviceList.litsOfService.length).toBe(1);
+    expect('Novo serviço foi publicado');
  })
 
  test('Remove from service list', () => {
     const serviceList = new ServiceList();
-    const service1 = new Service('Mudança', client1, 'Mudança de casa, no dia 31/02')
+    const service1 = new Service('Mudança', client1, 'Mudança de casa, no dia 31/02,')
     const service2 = new Service('Jardinagem', client2, 'Preciso de jardinheiro para pode de arvores')
     const service3 = new Service('Espionagem', client3, 'Preciso de um detetive para serviços de espionagem')
 
@@ -33,6 +34,7 @@ test('is empty', () => {
     serviceList.removeService(service2);
     
     expect(serviceList.litsOfService.length).toBe(2);
+    expect('Serviço foi removido');
  })
 
  test('Update service', () => {
@@ -48,5 +50,15 @@ test('is empty', () => {
     serviceList.updateService(service)
 
     expect('Serviço foi atualizado')
+
+ })
+
+ test('Adding a already accept service', () =>{
+
+    const service = new Service('Mudança', client1, 'Mudança de casa, no dia 31/02')
+
+    service.changeIsAccept();
+
+    expect(service.isAccpt).toBeTruthy();
 
  })

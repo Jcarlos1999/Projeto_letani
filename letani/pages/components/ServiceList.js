@@ -7,8 +7,13 @@ export default class ServiceList extends Observable{
     }
 
     addService(s){
-        this.litsOfService.push(s);
-        this.notify('Novo serviço foi publicado')
+        if(s.isAccept == true){
+            return 'Serviço já foi aceito por outro usuario';
+        }
+        else{
+            this.litsOfService.push(s);
+            this.notify('Novo serviço foi publicado')
+        }  
     }
 
     removeService(s){

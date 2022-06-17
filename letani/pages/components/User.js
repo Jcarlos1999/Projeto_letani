@@ -1,5 +1,5 @@
 export default class User{
-    username ;
+    username;
     password;
     email;
     
