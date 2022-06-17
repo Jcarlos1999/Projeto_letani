@@ -5,8 +5,12 @@ class Observable{
     }
 
     subscribe(f){
-        
-        this.observers.push(f);
+        if(this.observers.filter(f => f).length !== 0){
+            return 'Esse cliente já está inscrito'
+        } 
+        else {
+            this.observers.push(f);
+        }
 
     }
 

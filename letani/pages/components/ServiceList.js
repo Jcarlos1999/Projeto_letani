@@ -10,6 +10,9 @@ export default class ServiceList extends Observable{
         if(s.isAccept == true){
             return 'Serviço já foi aceito por outro usuario';
         }
+        else if(this.litsOfService.filter(f => f === s).length !== 0){
+            return 'Esse serviço já existe';
+        }
         else{
             this.litsOfService.push(s);
             this.notify('Novo serviço foi publicado')
