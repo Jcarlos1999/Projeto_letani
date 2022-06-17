@@ -1,4 +1,3 @@
-[![Node.js CI N](https://github.com/Jcarlos1999/Projeto_letani/actions/workflows/nodeCi.js.yml/badge.svg)](https://github.com/Jcarlos1999/Projeto_letani/actions/workflows/nodeCi.js.yml)
 * # Projeto C214-LAB - Site de Vagas de Emprego <a id="Titulo"></a>
 
 * ## Sumário:<a id="Sumario"></a>
